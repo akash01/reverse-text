@@ -14,4 +14,27 @@ angular.module('reverseApp')
       'AngularJS',
       'Karma'
     ];
+
+      $scope.master = {};
+
+      $scope.reset = function() {
+        $scope.input = angular.copy($scope.master);
+      };
+
+      $scope.reset();
+
+		$scope.countOf = function(text) {
+			var s = text ? text.split(/\s+/) : 0; // it splits the text on space/tab/enter
+			return s ? s.length : '';
+		};
+
+		// reverses the text
+		$scope.reverseText = function(text) {
+			var result = '';
+			text = text || '';
+			for (var i=0; i<text.length; i++) {
+				result = text.charAt(i) + result;
+			}
+			return result;
+		};
   });
